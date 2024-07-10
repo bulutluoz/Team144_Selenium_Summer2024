@@ -9,7 +9,7 @@ public class C03_DriverManageTimeoutsMethodlari {
 
     public static void main(String[] args) {
 
-        System.setProperty("Webdriver.chrome.driver","KurulumDosyalari/chromedriver");
+        //System.setProperty("Webdriver.chrome.driver","KurulumDosyalari/chromedriver");
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
