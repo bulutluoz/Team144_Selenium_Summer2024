@@ -70,7 +70,14 @@ public class C01_findElements {
                                     .click();
 
         // ilk urun sayfasinda, urun isminde case sensitive olmadan "phone" bulundugunu test edin
+        WebElement urunDetaylariElementi = driver.findElement(By.className("prod-detail"));
 
+        String expectedUrunisimIcerigi = "phone";
+        String actualUrunDetaylari = urunDetaylariElementi.getText().toLowerCase();
+
+        if (actualUrunDetaylari.contains(expectedUrunisimIcerigi)){
+            System.out.println("Ilk urun icerik testi PASSED");
+        }else System.out.println("Ilk urun icerik testi FAILED");
 
         Thread.sleep(3000);
         driver.quit();
