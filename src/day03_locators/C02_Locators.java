@@ -54,9 +54,24 @@ public class C02_Locators {
 
         boolean payBillsVarMi = false;
 
+        for (WebElement eachElement : islemBasliklariList
+             ) {
 
+            if (eachElement.getText().equalsIgnoreCase("Pay Bills")){
+                payBillsVarMi = true;
+            }
+        }
 
+        // loop bittiginde eger listede pay bills varsa payBillsVarMi = true olur
+        //                                        yoksa payBillsVarMi = false olur
 
+        // bizden istenen payBill'in oldugunu test etmemiz
+
+        if ( payBillsVarMi ){ // payBillsVarMi == true
+            System.out.println("Pay Bills testi PASSED");
+        }else {
+            System.out.println("Pay Bills testi FAILED");
+        }
 
         //6- Sayfayi kapatin
 
