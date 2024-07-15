@@ -1,4 +1,4 @@
-package day04_xpath_CssSelector_relativeXpath;
+package day04_xpath_CssSelector_relativeLocator;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -82,8 +82,6 @@ public class C02_XPath {
         if (fiyatDouble >=40 && fiyatDouble<=200){
             System.out.println("ilk urun fiyat testi PASSED");
         }else System.out.println("ilk urun fiyat testi FAILED");
-
-
 
         //12-Sayfayi kapatin
         Thread.sleep(2000);

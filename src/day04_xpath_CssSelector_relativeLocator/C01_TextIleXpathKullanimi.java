@@ -1,4 +1,4 @@
-package day04_xpath_CssSelector_relativeXpath;
+package day04_xpath_CssSelector_relativeLocator;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
