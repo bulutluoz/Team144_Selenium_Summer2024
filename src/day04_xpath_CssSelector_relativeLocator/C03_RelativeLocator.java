@@ -56,6 +56,14 @@ public class C03_RelativeLocator {
 
         driver.findElement( RelativeLocator.with(By.id("pic7_thumb")).toRightOf(appleKulaklik) )
                 .click();
+        urunIsimElementi = driver.findElement(By.xpath(" //div[@class=' heading-sm mb-4']"));
+
+
+        if (urunIsimElementi.getText().equals(expectedIsim)){
+            System.out.println("1.relative locator testi PASSED");
+        }else {
+            System.out.println("1.relative locator testi FAILED");
+        }
         Thread.sleep(2000);
 
 
@@ -67,6 +75,15 @@ public class C03_RelativeLocator {
 
         driver.findElement(  RelativeLocator.with(By.id("pictext7")).below(batKulaklik)  )
                 .click();
+        urunIsimElementi = driver.findElement(By.xpath(" //div[@class=' heading-sm mb-4']"));
+
+
+        if (urunIsimElementi.getText().equals(expectedIsim)){
+            System.out.println("2.relative locator testi PASSED");
+        }else {
+            System.out.println("2.relative locator testi FAILED");
+        }
+        Thread.sleep(2000);
 
         Thread.sleep(2000);
         // 3.relative locator icin motor telefonun solunda diyelim
@@ -78,7 +95,15 @@ public class C03_RelativeLocator {
 
         driver.findElement(  RelativeLocator.with(By.id("pictext7")).toLeftOf(motorTelefon)  )
                 .click();
+        urunIsimElementi = driver.findElement(By.xpath(" //div[@class=' heading-sm mb-4']"));
 
+
+        if (urunIsimElementi.getText().equals(expectedIsim)){
+            System.out.println("3.relative locator testi PASSED");
+        }else {
+            System.out.println("3.relative locator testi FAILED");
+        }
+        Thread.sleep(2000);
 
         Thread.sleep(2000);
         // 4.relative locator icin motor telefonun solunda,apple kulakligin saginda
@@ -87,14 +112,35 @@ public class C03_RelativeLocator {
         Thread.sleep(2000);
         // hedef elementin bir ozelligi : id = pictext7
 
-        driver.findElement(  RelativeLocator.with(By.id("pictext7"))
-                                            .toLeftOf(motorTelefon)
-                                            .toRightOf(appleKulaklik)
-                                            .below(batKulaklik)  ).click();
+        // driver.findElement( RelativeLocator.with(By.id("pictext7")).toRightOf(appleKulaklik) ).click();
+        /*
+            Her ne kadar apple kulakligi locate etmis olsak da
+            sonrasinda driver'i farkli sayfalara gonderdigimiz icin
+            driver appleKulaklik icin "StaleElementReferenceException" veriyor
+
+            Bu exception daha once locate edilmis ama artik kullanilamayan element oldugunda
+            karsimiza cikar
+
+            Cozum islemi yapmadan once locate'i yenilemektir
+         */
+
+        appleKulaklik = driver.findElement(By.id("pic6_thumb"));
+        batKulaklik = driver.findElement(By.id("pic2_thumb"));
+        motorTelefon = driver.findElement(By.id("pic8_thumb"));
+
+        driver.findElement( RelativeLocator.with(By.id("pictext7"))
+                                        .toRightOf(appleKulaklik)
+                                        .toLeftOf(motorTelefon)
+                                        .below(batKulaklik)  ).click();
+        urunIsimElementi = driver.findElement(By.xpath(" //div[@class=' heading-sm mb-4']"));
 
 
-
-
+        if (urunIsimElementi.getText().equals(expectedIsim)){
+            System.out.println("4.relative locator testi PASSED");
+        }else {
+            System.out.println("4.relative locator testi FAILED");
+        }
+        Thread.sleep(2000);
         Thread.sleep(3000);
         driver.quit();
 
